@@ -1,4 +1,3 @@
-# Sistema-Control-de--Asistencia-C++
 # Sistema de Control de Asistencia en C++
 
 ## Descripción
