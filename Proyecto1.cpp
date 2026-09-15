@@ -1,52 +1,57 @@
 #include <iostream>
 #include "Empleado.h"
+#include "funciones.h"
 
 int main()
 {
-    Empleado empleado, empleado1, empleado2;
-    
+    const int MAX_EMPLEADOS =20;
+    int cantidadEmpleados = 0;
+    Empleado* empleados[MAX_EMPLEADOS] = {nullptr};
+    int opcion;
+    do{
+        opcion = mostrarMenu();
+        switch (opcion){
+        case 1:
+            std::cout << "Rgistrar Asistencia.\n";
+            break;
+        case 2:
+            std::cout << "Mostrar todas las Asistencias..\n";
+            break;
+        case 3:
+            std::cout << "Mostrar todas las faltas.\n";
+            break;
+        case 4:
+            std::cout << "Buscar por codigo.\n";
+            break;
+        case 5:
+            std::cout << "Mostrar Empleados Administrativos.\n";
+            break;
+        case 6:
+            std::cout << "Mostrar Empleados Operativos\n";
+            break;
+        case 7:
+            std::cout << "Cambio de Estado.\n";
+            break;
+        case 8:
+            std::cout << "Cambio de Area\n";
+            break;
+        case 9:
+            std::cout << "Cambio de Departamento.\n";
+            break;
+        case 10:
+            std::cout << "Gracias por utilizar el sistema.\n";
+            break;
+        default:
+            std::cout << "===== Opción inválida. =====" << std::endl;
+            break;
+        }
+        std::cout << '\n';
 
-    empleado.establecerCodigo("EMP001");
-    empleado.establecerNombre("Juan Perez");
-
-    empleado.establecerAsistencia(0, 'A');
-    empleado.establecerAsistencia(1, 'A');
-    empleado.establecerAsistencia(2, 'F');
-    empleado.establecerAsistencia(3, 'A');
-    empleado.establecerAsistencia(4, 'A');
-
-    empleado.establecerFaltas(1);
-    empleado.establecerEstado("Puntual");
-
-    empleado.mostrarInformacion();
-
-    empleado1.establecerCodigo("EMP002");
-    empleado1.establecerNombre("Luis Garcia");
-
-    empleado1.establecerAsistencia(0, 'F');
-    empleado1.establecerAsistencia(1, 'F');
-    empleado1.establecerAsistencia(2, 'F');
-    empleado1.establecerAsistencia(3, 'F');
-    empleado1.establecerAsistencia(4, 'A');
-
-    empleado1.establecerFaltas(4);
-    empleado1.establecerEstado("Irregular");
-
-    empleado1.mostrarInformacion();
-
-    empleado2.establecerCodigo("EMP003");
-    empleado2.establecerNombre("Carlos Lopez");
-
-    empleado2.establecerAsistencia(0, 'A');
-    empleado2.establecerAsistencia(1, 'A');
-    empleado2.establecerAsistencia(2, 'A');
-    empleado2.establecerAsistencia(3, 'A');
-    empleado2.establecerAsistencia(4, 'A');
-
-    empleado2.establecerFaltas(0);
-    empleado2.establecerEstado("Puntual");
-
-    empleado2.mostrarInformacion();
+    }while (opcion !=10);
+    for(int i = 0; i < cantidadEmpleados    ; i++){
+        delete empleados[i];
+        empleados[i] = nullptr;
+    }
 
     return 0;
 }
