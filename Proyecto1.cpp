@@ -12,33 +12,36 @@ int main()
         opcion = mostrarMenu();
         switch (opcion){
         case 1:
-            std::cout << "Rgistrar Asistencia.\n";
+            registrarEmpleado(empleados,cantidadEmpleados, MAX_EMPLEADOS);
             break;
         case 2:
-            std::cout << "Mostrar todas las Asistencias..\n";
+            registrarAsistencia(empleados, cantidadEmpleados);
             break;
         case 3:
-            std::cout << "Mostrar todas las faltas.\n";
+            mostrarAsistenciasEmpleado(empleados,cantidadEmpleados);
             break;
         case 4:
-            std::cout << "Buscar por codigo.\n";
+            mostrarFaltasEmpleado(empleados,cantidadEmpleados);
             break;
         case 5:
-            std::cout << "Mostrar Empleados Administrativos.\n";
+            buscarEmpleadoPorCodigo(empleados,cantidadEmpleados);
             break;
         case 6:
-            std::cout << "Mostrar Empleados Operativos\n";
+            mostrarEmpleadosAdministrativos(empleados, cantidadEmpleados);
             break;
         case 7:
-            std::cout << "Cambio de Estado.\n";
+            mostrarEmpleadosOperativos(empleados, cantidadEmpleados);
             break;
         case 8:
-            std::cout << "Cambio de Area\n";
+            cambiarEstado(empleados,cantidadEmpleados);
             break;
         case 9:
-            std::cout << "Cambio de Departamento.\n";
+            std::cout << "Cambio de Area\n";
             break;
         case 10:
+            std::cout << "Cambio de Departamento.\n";
+            break;
+        case 11:
             std::cout << "Gracias por utilizar el sistema.\n";
             break;
         default:
@@ -47,7 +50,7 @@ int main()
         }
         std::cout << '\n';
 
-    }while (opcion !=10);
+    }while (opcion !=11);
     for(int i = 0; i < cantidadEmpleados    ; i++){
         delete empleados[i];
         empleados[i] = nullptr;
