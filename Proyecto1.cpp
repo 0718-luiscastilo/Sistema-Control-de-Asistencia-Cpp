@@ -36,10 +36,10 @@ int main()
             cambiarEstado(empleados,cantidadEmpleados);
             break;
         case 9:
-            std::cout << "Cambio de Area\n";
+            cambiarArea(empleados,cantidadEmpleados);
             break;
         case 10:
-            std::cout << "Cambio de Departamento.\n";
+            cambiarDepartamento(empleados,cantidadEmpleados);
             break;
         case 11:
             std::cout << "Gracias por utilizar el sistema.\n";

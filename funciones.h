@@ -357,3 +357,133 @@ void cambiarEstado(Empleado* empleados[], int cantidadEmpleados){
     empleadoEncontrado->mostrarInformacion();
 
 }
+void cambiarArea(Empleado* empleados[], int cantidadEmpleados){
+    if (cantidadEmpleados == 0){
+        std::cout << "No hay empleados registrados.\n";
+        return;
+    }
+    std::string codigo;
+    std::cout << "Codigo del empleado: ";
+    std::cin >> codigo;
+
+    Empleado* empleadoEncontrado = nullptr;
+    for (int i = 0; i < cantidadEmpleados; i++){
+        if (empleados[i]->obtenerCodigo() == codigo){
+            empleadoEncontrado = empleados[i];
+            break;
+        }
+    }
+    EmpleadoOperativo* operativo = dynamic_cast<EmpleadoOperativo*>(empleadoEncontrado);
+    if (operativo == nullptr){
+        std::cout << "No se encontro un empleado con ese codigo.\n";
+        return;
+    }
+    std::cout << "\n===== AREA ACTUAL DEL EMPLEADO =====\n";
+    std::cout << "Codigo: " << operativo->obtenerCodigo() << '\n';
+    std::cout << "Nombre: " << operativo->obtenerNombre() << '\n';
+    std::cout << "Area actual: " << operativo->obtenerArea() << '\n';
+    int opcionArea;
+    while (true){
+        std::cout << "\n===== NUEVO AREA =====\n";
+        std::cout << "1. Producción\n";
+        std::cout << "2. Mantenimiento\n";
+        std::cout << "3. Calidad\n";
+        std::cout << "4. Almacén\n";
+        std::cout << "Seleccione una opcion: ";
+
+        if (!(std::cin >> opcionArea)){
+            std::cout << "Error: Debe ingresar un numero.\n";
+            std::cin.clear();
+            std::cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
+            continue;
+        }
+        if (opcionArea >= 1 && opcionArea <= 4){
+            break;
+        }
+        std::cout << "Error: Seleccione una opcion entre 1 y 4.\n";
+    }
+    std::string nuevaArea;
+    switch (opcionArea){
+        case 1:
+            nuevaArea = "Producción";
+            break;
+        case 2:
+            nuevaArea = "Mantenimiento";
+            break;
+        case 3:
+            nuevaArea = "Calidad";
+            break;
+        case 4:
+            nuevaArea = "Almacén";
+            break;
+    }
+    operativo->cambioArea(nuevaArea);
+    std::cout << "\n===== EL ESTADO SE ACTUALIZO CORRECTAMENTE =====\n";
+    std::cout << "Nuevo estado: " <<operativo->obtenerArea() << '\n';
+    operativo->mostrarInformacion();
+}
+void cambiarDepartamento(Empleado* empleados[], int cantidadEmpleados){
+    if (cantidadEmpleados == 0){
+        std::cout << "No hay empleados registrados.\n";
+        return;
+    }
+    std::string codigo;
+    std::cout << "Codigo del empleado: ";
+    std::cin >> codigo;
+
+    Empleado* empleadoEncontrado = nullptr;
+    for (int i = 0; i < cantidadEmpleados; i++){
+        if (empleados[i]->obtenerCodigo() == codigo){
+            empleadoEncontrado = empleados[i];
+            break;
+        }
+    }
+    EmpleadoAdministrativo* administrativo = dynamic_cast<EmpleadoAdministrativo*>(empleadoEncontrado);
+    if (administrativo == nullptr){
+        std::cout << "No se encontro un empleado con ese codigo.\n";
+        return;
+    }
+    std::cout << "\n===== AREA ACTUAL DEL EMPLEADO =====\n";
+    std::cout << "Codigo: " << administrativo->obtenerCodigo() << '\n';
+    std::cout << "Nombre: " << administrativo->obtenerNombre() << '\n';
+    std::cout << "Area actual: " << administrativo->obtenerDepartamento() << '\n';
+    int opcionDepartamento;
+    while (true){
+        std::cout << "\n===== NUEVO AREA =====\n";
+        std::cout << "1. Producción\n";
+        std::cout << "2. Mantenimiento\n";
+        std::cout << "3. Calidad\n";
+        std::cout << "4. Almacén\n";
+        std::cout << "Seleccione una opcion: ";
+
+        if (!(std::cin >> opcionDepartamento)){
+            std::cout << "Error: Debe ingresar un numero.\n";
+            std::cin.clear();
+            std::cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
+            continue;
+        }
+        if (opcionDepartamento >= 1 && opcionDepartamento <= 4){
+            break;
+        }
+        std::cout << "Error: Seleccione una opcion entre 1 y 4.\n";
+    }
+    std::string nuevoDepartamento;
+    switch (opcionDepartamento){
+        case 1:
+            nuevoDepartamento = "Recursos Humanos";
+            break;
+        case 2:
+            nuevoDepartamento = "Finanzas";
+            break;
+        case 3:
+            nuevoDepartamento = "Contabilidad";
+            break;
+        case 4:
+            nuevoDepartamento = "Compras";
+            break;
+    }
+    administrativo->cambioDepartamento(nuevoDepartamento);
+    std::cout << "\n===== EL ESTADO SE ACTUALIZO CORRECTAMENTE =====\n";
+    std::cout << "Nuevo estado: " <<administrativo->obtenerDepartamento() << '\n';
+    administrativo->mostrarInformacion();
+}
