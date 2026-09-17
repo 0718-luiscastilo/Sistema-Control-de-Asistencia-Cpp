@@ -269,7 +269,7 @@ void mostrarEmpleadosAdministrativos(Empleado* empleados[], int cantidadEmpleado
         }
     }
     if(administrativos == 0){
-        std::cout << "No se encontro ningun Empleado Adminstrativos.\n";
+        std::cout << "No se encontro ningun Empleado administrativo.\n";
     }
     std::cout << "Total de Empleados Administrativos: " << administrativos << '\n';
 }
@@ -290,7 +290,7 @@ void mostrarEmpleadosOperativos(Empleado* empleados[], int cantidadEmpleados){
     if(operativo == 0){
         std::cout << "No se encontro ningun Empleado Operativo.\n";
     }
-    std::cout << "Total de Empleados Operativoo: " << operativo << '\n';
+    std::cout << "Total de Empleados Operativos: " << operativo << '\n';
 }
 void cambiarEstado(Empleado* empleados[], int cantidadEmpleados){
     if (cantidadEmpleados == 0){
@@ -418,7 +418,7 @@ void cambiarArea(Empleado* empleados[], int cantidadEmpleados){
             break;
     }
     operativo->cambioArea(nuevaArea);
-    std::cout << "\n===== EL ESTADO SE ACTUALIZO CORRECTAMENTE =====\n";
+    std::cout << "\n===== EL AREA SE ACTUALIZO CORRECTAMENTE =====\n";
     std::cout << "Nuevo estado: " <<operativo->obtenerArea() << '\n';
     operativo->mostrarInformacion();
 }
@@ -443,17 +443,17 @@ void cambiarDepartamento(Empleado* empleados[], int cantidadEmpleados){
         std::cout << "No se encontro un empleado con ese codigo.\n";
         return;
     }
-    std::cout << "\n===== AREA ACTUAL DEL EMPLEADO =====\n";
+    std::cout << "\n===== DEPARTAMENTO ACTUAL DEL EMPLEADO =====\n";
     std::cout << "Codigo: " << administrativo->obtenerCodigo() << '\n';
     std::cout << "Nombre: " << administrativo->obtenerNombre() << '\n';
     std::cout << "Area actual: " << administrativo->obtenerDepartamento() << '\n';
     int opcionDepartamento;
     while (true){
-        std::cout << "\n===== NUEVO AREA =====\n";
-        std::cout << "1. Producción\n";
-        std::cout << "2. Mantenimiento\n";
-        std::cout << "3. Calidad\n";
-        std::cout << "4. Almacén\n";
+        std::cout << "\n===== NUEVO DEPARTAMENTO =====\n";
+        std::cout << "1. Recursos Humanos\n";
+        std::cout << "2. Finanzas\n";
+        std::cout << "3. Contabilidad\n";
+        std::cout << "4. Compras\n";
         std::cout << "Seleccione una opcion: ";
 
         if (!(std::cin >> opcionDepartamento)){

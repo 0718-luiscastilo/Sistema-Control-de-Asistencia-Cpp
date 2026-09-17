@@ -49,7 +49,7 @@ class EmpleadoAdministrativo : public Empleado{
     }
     
     
-    void mostrarInformacion() const{
+    void mostrarInformacion() const override{
         std::cout << "---------------------------" << '\n';
         Empleado::mostrarInformacion();
         std::cout << "Departamento: " << departamento << '\n';

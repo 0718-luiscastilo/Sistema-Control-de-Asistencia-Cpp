@@ -67,7 +67,7 @@ class Empleado{
     std::string obtenerEstado() const{
         return estado;
     }
-    void mostrarInformacion() const{
+    virtual void mostrarInformacion() const{
         std::cout << "---------------------------" << '\n';
         std::cout << "Codigo: " << codigo << '\n';
         std::cout << "Nombre: " << nombre << '\n';

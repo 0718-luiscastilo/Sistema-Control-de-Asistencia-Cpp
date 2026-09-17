@@ -25,12 +25,12 @@ class EmpleadoOperativo : public Empleado{
     void establecerArea(const std::string& setArea){
         area = setArea;
     }
-    void estableceTurno(int setTurno){
+    void establecerTurno(int setTurno){
         if (setTurno >= 1 && setTurno <= 3){
             turno = setTurno;
         }
     }
-    void establecerMaquinaAsignada(const std::string& setmaquinaAsignada){
+    void obtenerMaquinaAsignada(const std::string& setmaquinaAsignada){
         maquinaAsignada = setmaquinaAsignada;
     }
 
@@ -40,14 +40,14 @@ class EmpleadoOperativo : public Empleado{
     int obtenerTurno() const{
         return turno;
     }
-    std::string obtenerMaqunaAsignada() const{
+    std::string obtenerMaquinaAsignada() const{
         return maquinaAsignada;
     }
     void cambioArea(const std::string& nuevaArea){
         establecerArea(nuevaArea);
         std::cout << "El cambio de area se realizo exitosamente" << '\n';
     }
-    void mostrarInformacion() const{
+    void mostrarInformacion() const override{
         
         Empleado::mostrarInformacion();
         std::cout << "Area: " << area << '\n';
